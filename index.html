@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUANGIVA - luangiva.com</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- BoxIcons for lightweight SVG icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">L</div>
+                    <h2>LUANGIVA</h2>
+                </div>
+                <button class="close-btn" id="close-btn" aria-label="Đóng menu"><i class='bx bx-x'></i></button>
+            </div>
+
+            <div class="sidebar-menu">
+                <span class="menu-label">KHÁM PHÁ</span>
+                <a href="#" class="menu-item active">
+                    <i class='bx bxs-home' style="color: #ff6b6b;"></i>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bxs-videos' style="color: #4facfe;"></i>
+                    <span>Khóa Học</span>
+                    <span class="badge hot">HOT</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bx-laptop' style="color: #a18cd1;"></i>
+                    <span>Zoom Events</span>
+                    <span class="badge live">LIVE</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bxs-folder-open' style="color: #00f2fe;"></i>
+                    <span>Kho Tài Liệu</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bxs-data' style="color: #f6d365;"></i>
+                    <span>Hệ Thống AI</span>
+                    <span class="badge sale">SALE</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bx-wrench' style="color: #cfd9df;"></i>
+                    <span>Công cụ AI</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bx-chat' style="color: #e0c3fc;"></i>
+                    <span>Chatbot Prompt</span>
+                    <span class="badge count">4</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bx-file-blank' style="color: #8fd3f4;"></i>
+                    <span>Prompt miễn phí</span>
+                </a>
+
+                <span class="menu-label mt-4">KHÁC</span>
+                <a href="#" class="menu-item">
+                    <i class='bx bxs-magic-wand' style="color: #ff9a9e;"></i>
+                    <span>Custom Chatbot</span>
+                    <span class="badge new">NEW</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bx-credit-card' style="color: #84fab0;"></i>
+                    <span>Bảng giá</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class='bx bxs-heart' style="color: #fccb90;"></i>
+                    <span>Cộng tác viên</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="main-wrapper">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-btn" id="menu-btn" aria-label="Mở menu"><i class='bx bx-menu'></i></button>
+                    <nav class="topbar-nav">
+                        <a href="#" class="active">Trang chủ</a>
+                        <a href="#">Sản phẩm số</a>
+                        <a href="#">Bài viết</a>
+                        <a href="#">Bảng giá</a>
+                        <a href="#">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div class="topbar-right">
+                    <a href="#" class="btn btn-red"><i class='bx bx-book'></i> Ebook Hay <span class="btn-badge">🔥
+                            HOT</span></a>
+                    <a href="login.html" class="btn btn-purple" aria-label="Đăng xuất"
+                        style="background: linear-gradient(135deg, #1e272e, #485460); padding: 8px; justify-content: center; width: 36px; height: 36px;"><i
+                            class='bx bx-log-out' style="font-size: 18px;"></i></a>
+                </div>
+            </header>
+
+            <!-- Main Content Container -->
+            <div class="content">
+                <section class="featured-section">
+                    <div class="section-header">
+                        <h2><i class='bx bxs-hot'></i> Chatbot nổi bật <span class="badge hot-large">HOT</span></h2>
+                        <a href="#" class="view-all-btn">Xem tất cả &rarr;</a>
+                    </div>
+
+                    <div class="product-grid">
+                        <!-- Product Item 1: Ebook/Chatbot -->
+                        <article class="product-card">
+                            <div class="card-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=400&auto=format&fit=crop');">
+                                <div class="card-badges">
+                                    <span class="badge premium"><i class='bx bxs-crown'></i> Premium</span>
+                                    <span class="badge chatbot"><i class='bx bx-bot'></i> Chatbot AI</span>
+                                </div>
+                                <button class="btn-bookmark" aria-label="Lưu"><i class='bx bx-bookmark'></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h3>Con Trùng Tạo CR7 Siêu Đỉnh | Trợ Lý Chatbot Tạo Prompt Kiến...</h3>
+                                <p>Video sử dụng hình ảnh hàng ngàn con kiến để tạo hình siêu sao bóng đá...</p>
+                                <div class="card-footer">
+                                    <span class="sales">10 đã bán</span>
+                                    <div class="price">
+                                        <span class="old-price">499.000đ</span>
+                                        <span class="new-price">199.000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product Item 2: Account/Chatbot -->
+                        <article class="product-card">
+                            <div class="card-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop');">
+                                <div class="card-badges">
+                                    <span class="badge premium"><i class='bx bxs-crown'></i> Premium</span>
+                                    <span class="badge chatbot"><i class='bx bx-bot'></i> Chatbot AI</span>
+                                </div>
+                                <button class="btn-bookmark" aria-label="Lưu"><i class='bx bx-bookmark'></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h3>Bậc Thầy Cảnh Quan | Chatbot Tạo Prompt Ảnh, Prompt Video...</h3>
+                                <p>Công cụ độc quyền từ NDGroup Media Việt Nam. Chuyên gia AI chỉ đạo nghệ...</p>
+                                <div class="card-footer">
+                                    <span class="sales">60 đã bán</span>
+                                    <div class="price">
+                                        <span class="old-price">499.000đ</span>
+                                        <span class="new-price">139.000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product Item 3: Post/Tutorial -->
+                        <article class="product-card">
+                            <div class="card-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=400&auto=format&fit=crop');">
+                                <div class="card-badges">
+                                    <span class="badge premium"><i class='bx bxs-crown'></i> Premium</span>
+                                    <span class="badge chatbot"><i class='bx bx-bot'></i> Chatbot AI</span>
+                                    <span class="badge new-orange mt-1"><i class='bx bxs-star'></i> Mới</span>
+                                </div>
+                                <button class="btn-bookmark" aria-label="Lưu"><i class='bx bx-bookmark'></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h3>Chatbot tạo video triết lý hoài niệm</h3>
+                                <p>Chatbot hỗ trợ tạo prompt ảnh, prompt video nhân hóa đồ vật kỷ niệm nói...</p>
+                                <div class="card-footer">
+                                    <span class="sales">4 đã bán</span>
+                                    <div class="price">
+                                        <span class="old-price">499.000đ</span>
+                                        <span class="new-price">139.000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer Section -->
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <p>&copy; 2026 luangiva.com. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Floating Support CTA Container -->
+        <div class="floating-support">
+            <span class="badge-new-floating">New</span>
+            <div class="support-avatar">
+                <img src="https://ui-avatars.com/api/?name=Support&background=8A2BE2&color=fff&rounded=true"
+                    alt="Hỗ trợ">
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

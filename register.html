@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - LUANGIVA</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- BoxIcons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo-icon" style="background: linear-gradient(135deg, #00cec9, #0984e3); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0, 206, 201, 0.4);">L</div>
+                <h1>Đăng ký tài khoản</h1>
+                <p>Khởi đầu cùng LUANGIVA ngay hôm nay</p>
+            </div>
+
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="email">Địa chỉ Email</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="email" id="email" placeholder="Nhập email của bạn" required style="flex: 1;">
+                        <button type="button" class="auth-btn btn-outline" style="width: auto; padding: 14px; margin-top: 0; white-space: nowrap;">Xác nhận Email</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Tạo mật khẩu" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu</label>
+                    <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu" required>
+                </div>
+
+                <button type="submit" class="auth-btn" style="margin-top: 24px;">Đăng ký</button>
+            </form>
+
+            <div class="auth-footer">
+                Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

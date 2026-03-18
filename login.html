@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - LUANGIVA</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- BoxIcons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo-icon" style="background: linear-gradient(135deg, #00cec9, #0984e3); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0, 206, 201, 0.4);">L</div>
+                <h1>Đăng nhập</h1>
+                <p>Chào mừng bạn quay trở lại LUANGIVA</p>
+            </div>
+
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Địa chỉ Email</label>
+                    <input type="email" id="email" placeholder="Nhập email của bạn" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <div class="auth-actions">
+                    <label style="display: flex; align-items: center; gap: 8px; margin: 0; font-weight: normal;">
+                        <input type="checkbox" style="width: auto;"> Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" style="color: var(--accent-cyan); font-weight: 600;">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="auth-btn">Đăng nhập</button>
+            </form>
+
+            <div class="auth-footer">
+                Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
