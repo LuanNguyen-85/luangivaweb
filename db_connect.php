@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "brjjmrxnhosting_luangivaweb"; // Thay bằng tên User mà bạn tạo ở Bước 2
-$password = "Luan@032026"; // Thay bằng mật khẩu của User bạn tạo
-$dbname = "brjjmrxnhosting_dbl";
+$username = "root"; // Thay bằng tên User mà bạn tạo ở Bước 2
+$password = ""; // Thay bằng mật khẩu của User bạn tạo
+$dbname = "luangiva_local_db";
 
 // Tạo kết nối
 $conn = new mysqli($servername, $username, $password, $dbname);
