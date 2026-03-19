@@ -11,7 +11,7 @@ if(isset($data->email) && isset($data->password)) {
     $password_input = $data->password;
     
     // Tìm người dùng trong CSDL bằng email
-    $sql = "SELECT id, username, password FROM users WHERE email = '$email'";
+    $sql = "SELECT id, username, password, role FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -21,8 +21,9 @@ if(isset($data->email) && isset($data->password)) {
             // Đăng nhập đúng, lưu vào Session
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
+            $_SESSION['role'] = $row['role'];
             
-            echo json_encode(["status" => "success", "message" => "Đăng nhập thành công!"]);
+            echo json_encode(["status" => "success", "message" => "Đăng nhập thành công!", "role" => $row['role']]);
         } else {
             echo json_encode(["status" => "error", "message" => "Mật khẩu không chính xác."]);
         }

@@ -89,11 +89,11 @@
                 <div class="topbar-left">
                     <button class="menu-btn" id="menu-btn" aria-label="Mở menu"><i class='bx bx-menu'></i></button>
                     <nav class="topbar-nav">
-                        <a href="#" class="active">Trang chủ</a>
-                        <a href="#">Sản phẩm số</a>
-                        <a href="#">Bài viết</a>
-                        <a href="#">Bảng giá</a>
-                        <a href="#">Về chúng tôi</a>
+                        <a href="#" class="active" data-target="featuredSection">Trang chủ</a>
+                        <a href="#" data-target="productsSection">Sản phẩm số</a>
+                        <a href="#" data-target="postsSection">Bài viết</a>
+                        <a href="#" data-target="pricingSection">Bảng giá</a>
+                        <a href="#" data-target="aboutSection">Về chúng tôi</a>
                     </nav>
                 </div>
                 <div class="topbar-right">
@@ -107,7 +107,7 @@
 
             <!-- Main Content Container -->
             <div class="content">
-                <section class="featured-section">
+                <section id="featuredSection" class="featured-section">
                     <div class="section-header">
                         <h2><i class='bx bxs-hot'></i> Chatbot nổi bật <span class="badge hot-large">HOT</span></h2>
                         <a href="#" class="view-all-btn">Xem tất cả &rarr;</a>
@@ -183,6 +183,20 @@
                                 </div>
                             </div>
                         </article>
+                    </div>
+                </section>
+
+                <!-- Posts Section -->
+                <section class="posts-section" id="postsSection" style="display: none;">
+                    <div class="section-header">
+                        <h2><i class='bx bxs-file-alt'></i> Bài viết</h2>
+                        <a href="#" class="view-all-btn" onclick="return false;">Tải thêm &rarr;</a>
+                    </div>
+
+                    <div class="posts-grid" id="postsGrid">
+                        <div style="text-align: center; padding: 40px;">
+                            <p>Đang tải bài viết...</p>
+                        </div>
                     </div>
                 </section>
             </div>

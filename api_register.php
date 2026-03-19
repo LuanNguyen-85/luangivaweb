@@ -7,14 +7,30 @@ $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->email) && isset($data->password)) {
     $email = $conn->real_escape_string($data->email);
-    
-    // Tách email để lấy username mặc định
-    $username_parts = explode('@', $email);
-    $username = $conn->real_escape_string($username_parts[0]);
-    
+
+    // Sử dụng username có sẵn nếu có, nếu không thì tách từ email
+    if (!empty($data->username)) {
+        $username = $conn->real_escape_string($data->username);
+    } else {
+        $username_parts = explode('@', $email);
+        $username = $conn->real_escape_string($username_parts[0]);
+    }
+
+    // Phân quyền nếu được gửi lên
+    $role = 'user';
+    if (!empty($data->role)) {
+        $role = $conn->real_escape_string($data->role);
+    }
+
+    // Số điện thoại nếu có
+    $phone = null;
+    if (!empty($data->phone)) {
+        $phone = $conn->real_escape_string($data->phone);
+    }
+
     // Mã hóa mật khẩu
     $password = password_hash($data->password, PASSWORD_BCRYPT);
-    
+
     // Kiểm tra xem email đã tồn tại chưa
     $check_sql = "SELECT id FROM users WHERE email = '$email'";
     $result = $conn->query($check_sql);
@@ -22,9 +38,9 @@ if(isset($data->email) && isset($data->password)) {
         echo json_encode(["status" => "error", "message" => "Email này đã được sử dụng."]);
         exit();
     }
-    
+
     // Ghi vào Database
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO users (username, email, password, role, phone) VALUES ('$username', '$email', '$password', '$role', " . ($phone !== null ? "'$phone'" : "NULL") . ")";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["status" => "success", "message" => "Đăng ký thành công!"]);
     } else {
