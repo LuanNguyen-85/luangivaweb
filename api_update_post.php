@@ -30,6 +30,9 @@ if (isset($data->content)) {
 if (isset($data->category)) {
     $fields[] = "category = '" . $conn->real_escape_string($data->category) . "'";
 }
+if (isset($data->image_url)) {
+    $fields[] = "image_url = '" . $conn->real_escape_string($data->image_url) . "'";
+}
 
 if (empty($fields)) {
     echo json_encode(["status" => "error", "message" => "Không có trường dữ liệu để cập nhật."]);

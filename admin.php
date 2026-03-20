@@ -475,34 +475,65 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <h2><i class='bx bx-paint-roll'></i> Quản lý / Chỉnh sửa Menu, Topbar, Footbar</h2>
                     </div>
                     
+                    <!-- Topbar Menu Configuration -->
                     <h3 style="margin-bottom: 12px; font-size: 16px;">Tùy chỉnh Topbar Menu</h3>
-                    <div class="admin-form-group">
-                        <label>Danh sách Link Menu (định dạng JSON hoặc Text)</label>
-                        <textarea rows="5">
-[
-  {"title": "Trang chủ", "url": "/"},
-  {"title": "Công cụ AI", "url": "/tools"},
-  {"title": "Bảng giá", "url": "/pricing"}
-]
-                        </textarea>
+                    <div class="admin-form-group" style="margin-bottom: 16px;">
+                        <button class="btn btn-cyan" onclick="openMenuItemModal('add', 'topbar')"><i class='bx bx-plus'></i> Thêm mục Topbar</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Vị trí</th>
+                                    <th>Tiêu đề</th>
+                                    <th>URL</th>
+                                    <th>Icon</th>
+                                    <th>Hiên/Ẩn</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topbarMenuTable">
+                                <tr><td colspan="6" style="text-align:center;">Đang tải...</td></tr>
+                            </tbody>
+                        </table>
                     </div>
 
+                    <!-- Sidebar Menu Configuration -->
                     <h3 style="margin-bottom: 12px; margin-top: 24px; font-size: 16px;">Tùy chỉnh Sidebar Menu</h3>
-                    <div class="admin-form-group">
-                        <label>Hiện/Ẩn Menu "Chatbot Prompt"</label>
-                        <select>
-                            <option>Hiển thị</option>
-                            <option>Ẩn</option>
-                        </select>
+                    <div class="admin-form-group" style="margin-bottom: 16px;">
+                        <button class="btn btn-cyan" onclick="openMenuItemModal('add', 'sidebar')"><i class='bx bx-plus'></i> Thêm mục Sidebar</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Vị trí</th>
+                                    <th>Tiêu đề</th>
+                                    <th>URL</th>
+                                    <th>Icon</th>
+                                    <th>Hiên/Ẩn</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sidebarMenuTable">
+                                <tr><td colspan="6" style="text-align:center;">Đang tải...</td></tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <h3 style="margin-bottom: 12px; margin-top: 24px; font-size: 16px;">Tùy chỉnh Footbar</h3>
+                    <!-- Footer Configuration -->
+                    <h3 style="margin-bottom: 12px; margin-top: 24px; font-size: 16px;">Tùy chỉnh Footer</h3>
                     <div class="admin-form-group">
                         <label>Nội dung bản quyền Footer</label>
-                        <input type="text" value="&copy; 2026 luangiva.com. All rights reserved.">
+                        <input type="text" id="footerText" placeholder="© 2026 luangiva.com. All rights reserved.">
                     </div>
-
-                    <button class="btn btn-purple">Lưu Cập Nhật Giao Diện</button>
+                    <div class="admin-form-group">
+                        <label>
+                            <input type="checkbox" id="footerVisible" checked>
+                            Hiển thị Footer
+                        </label>
+                    </div>
+                    <button class="btn btn-purple" onclick="updateFooterConfig()">Lưu Cập Nhật Footer</button>
                 </section>
 
             </div>
@@ -568,10 +599,53 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <input id="postCategory" type="text" placeholder="Danh mục (ví dụ: Thủ thuật AI)">
                     </div>
                     <div class="admin-form-group">
+                        <label>Ảnh đại diện (URL)</label>
+                        <input id="postImageUrl" type="text" placeholder="https://...">
+                    </div>
+                    <div class="admin-form-group">
                         <label>Nội dung</label>
                         <textarea id="postContent" rows="8" placeholder="Nhập nội dung bài viết" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-cyan" style="width: 100%; justify-content:center;" id="postModalSubmitBtn">Lưu Bài Viết</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form Menu Item (Thêm / Chỉnh sửa) -->
+    <div class="admin-modal" id="menuItemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="menuItemModalTitle">Quản lý Menu Item</h2>
+                <button class="close-btn" onclick="closeModal('menuItemModal')" style="display:block; font-size:24px;"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="menuItemForm">
+                    <input type="hidden" id="menuItemId">
+                    <input type="hidden" id="menuItemType">
+                    <div class="admin-form-group">
+                        <label>Tiêu đề</label>
+                        <input id="menuItemTitle" type="text" placeholder="Tiêu đề mục menu" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>URL</label>
+                        <input id="menuItemUrl" type="text" placeholder="https://... hoặc /path">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Icon (BoxIcon class, vd: bx-home, bxs-user)</label>
+                        <input id="menuItemIcon" type="text" placeholder="bxs-home">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Vị trí (số thứ tự)</label>
+                        <input id="menuItemPosition" type="number" value="0" min="0">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>
+                            <input type="checkbox" id="menuItemVisible" checked>
+                            Hiển thị
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-cyan" style="width: 100%; justify-content:center;" id="menuItemModalSubmitBtn">Lưu</button>
                 </form>
             </div>
         </div>

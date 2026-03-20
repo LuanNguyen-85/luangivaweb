@@ -21,9 +21,10 @@ if (!isset($data->title) || !isset($data->content)) {
 $title = $conn->real_escape_string($data->title);
 $content = $conn->real_escape_string($data->content);
 $category = isset($data->category) ? $conn->real_escape_string($data->category) : '';
+$image_url = isset($data->image_url) ? $conn->real_escape_string($data->image_url) : '';
 $author_id = $_SESSION['user_id'];
 
-$sql = "INSERT INTO posts (title, content, category, author_id) VALUES ('$title', '$content', '$category', '$author_id')";
+$sql = "INSERT INTO posts (title, content, category, image_url, author_id) VALUES ('$title', '$content', '$category', '$image_url', '$author_id')";
 
 if ($conn->query($sql) === TRUE) {
     $post_id = $conn->insert_id;

@@ -13,7 +13,7 @@ if ($fromAdmin && (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin')) 
 
 require 'db_connect.php';
 
-$sql = "SELECT id, title, content, category, author_id, views, created_date FROM posts ORDER BY created_date DESC";
+$sql = "SELECT id, title, content, category, image_url, author_id, views, created_date FROM posts ORDER BY created_date DESC";
 $result = $conn->query($sql);
 
 $posts = [];

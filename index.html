@@ -193,12 +193,51 @@
                         <a href="#" class="view-all-btn" onclick="return false;">Tải thêm &rarr;</a>
                     </div>
 
+                    <div class="posts-filters" style="display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+                        <label style="color:var(--text-secondary);">Lọc theo danh mục:</label>
+                        <select id="postCategoryFilter" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-surface); color:var(--text-primary);">
+                            <option value="">Tất cả</option>
+                        </select>
+                        <button id="postReload" class="btn btn-cyan" style="padding:6px 14px; font-size:13px;">Tải lại</button>
+                    </div>
                     <div class="posts-grid" id="postsGrid">
                         <div style="text-align: center; padding: 40px;">
                             <p>Đang tải bài viết...</p>
                         </div>
                     </div>
+                    <div class="posts-pagination" id="postsPagination" style="margin-top:20px; display:flex; justify-content:center; align-items:center; gap:10px;"></div>
                 </section>
+
+                <!-- Post Detail Modal -->
+                <div class="post-detail-modal" id="postDetailModal">
+                    <div class="post-detail-content">
+                        <div class="post-detail-header">
+                            <h2 id="postDetailTitle">Tiêu đề bài viết</h2>
+                            <button id="postDetailClose" class="close-btn"><i class='bx bx-x'></i></button>
+                        </div>
+                        <div class="post-detail-meta">
+                            <span id="postDetailCategory">Danh mục</span>
+                            <span id="postDetailDate">Ngày đăng</span>
+                            <span id="postDetailViews"><i class='bx bx-show'></i> 0</span>
+                        </div>
+                        <div class="post-detail-body" id="postDetailContent">Nội dung bài viết</div>
+
+                        <div class="post-detail-similar" style="margin-top:24px;">
+                            <h3 style="margin-bottom:12px;color:var(--text-primary);">Bài viết tương tự</h3>
+                            <div id="postDetailSimilar" style="display:flex;gap:10px;flex-wrap:wrap;"></div>
+                        </div>
+
+                        <div class="post-detail-comments" style="margin-top:24px;">
+                            <h3 style="margin-bottom:12px;color:var(--text-primary);">Bình luận</h3>
+                            <div id="postComments" style="max-height:200px; overflow-y:auto; padding:8px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-surface-light);"></div>
+                            <form id="commentForm" style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+                                <input id="commentName" type="text" placeholder="Tên của bạn" required style="padding:8px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-primary);">
+                                <textarea id="commentContent" rows="3" placeholder="Nhập bình luận" required style="padding:8px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-primary);"></textarea>
+                                <button type="submit" class="btn btn-cyan" style="width:auto;">Gửi bình luận</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Footer Section -->
